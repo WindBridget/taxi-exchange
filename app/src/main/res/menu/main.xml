@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/itemList"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:icon="@drawable/toolbar_user_icon"
+        android:title="User" />
+
+    <!-- thuộc tính icon dùng để đặt biểu tượng cho menu, ảnh này được lấy trong thư  mục drawable -->
+
+
+</menu>

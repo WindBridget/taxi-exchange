@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Taxi Exchange</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="main_activity">This is our Main Activity</string>
+    <string name="another_activity">This is our Another Activity</string>
+    <string name="taxi_exchange_notification">Xelienket</string>
+
+    <string name="txt_android">Android</string>
+    <string name="txt_question">I\'m having a hard time with ...</string>
+    <string name="txt_accept">GỬI OFFER</string>
+    <string name="txt_direct_bid">MUA THẲNG</string>
+    <string name="txt_direct_offer">Bán thẳng</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="txt_date">Ngày:\u0020</string>
+    <string name="txt_time">Giờ:\u0020</string>
+    <string name="txt_taxi_type">Type</string>
+    <string name="txt_total_people">\u0020khách</string>
+    <string name="txt_vnd">\u0020K</string>
+    <string name="txt_from">Từ:\u0020</string>
+    <string name="txt_to">Đến:\u0020</string>
+    <string name="txt_has_bill">Lấy hóa đơn </string>
+    <string name="txt_dont_have_bill">Không lấy hóa đơn </string>
+    <string name="txt_price">Giá:</string>
+    <string name="txt_fee">Thu khách:</string>
+    <string name="txt_price_offer">Đang bid:\u0020</string>
+    <string name="txt_note">Ghi chú:\u0020 </string>
+    <string name="txt_remaining">Time remaining</string>
+    <string name="txt_time_remaining_status">Đã hết giờ đấu giá</string>
+    <string name="txt_time_remaining_out">Hết hạn</string>
+    <string name="txt_bid">Hết hạn</string>
+    <string name="login">ĐĂNG NHẬP</string>
+    <string name="list_calendar">Danh sách lịch</string>
+    <string name="list_joined">Lịch đã tham gia</string>
+    <string name="list_accepted">Lịch đã nhận</string>
+
+    <string name="day">\u0020ngày,\u0020</string>
+    <string name="hour">\u0020giờ,\u0020</string>
+    <string name="minute">\u0020phút,\u0020</string>
+    <string name="second">\u0020giây.\u0020</string>
+    <string-array name="bid_spinner">
+        <item>Bid giá</item>
+    </string-array>
+    <string-array name="titles">
+        <item>@string/list_calendar</item>
+        <item>@string/list_joined</item>
+        <item>@string/list_accepted</item>
+    </string-array>
+
+
+</resources>

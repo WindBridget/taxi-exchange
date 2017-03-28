@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_list_calendar"
+            android:icon="@drawable/nav_list_calendar"
+            android:title="Danh sách lịch" />
+        <item
+            android:id="@+id/nav_list_joined"
+            android:icon="@drawable/nav_list_joined"
+            android:title="Lịch đã tham gia" />
+        <item
+            android:id="@+id/nav_list_accepted"
+            android:icon="@drawable/nav_list_accepted"
+            android:title="Lịch đã nhận" />
+    </group>
+
+</menu>

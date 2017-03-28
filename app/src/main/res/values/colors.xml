@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="primary">#E43F3F</color>
+    <color name="primary_dark">#E12929</color>
+    <color name="primary_darker">#CC1D1D</color>
+    <color name="accent">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="facebook">#3F51B5</color>
+    <color name="google">#FF3D00</color>
+    <color name="signIn">#FF5722</color>
+    <color name="colorSignIn">#EC407A</color>
+    <color name="colorBlue">#1E88E5</color>
+    <color name="signinButton">#12a0e4</color>
+    <color name="colorGreen">#3aba3f</color>
+    <color name="brand_red">#d51826</color>
+    <color name="colorBackgroundSignIn">#91cbe8</color>
+    <color name="backgroundItemHistory">#499bd2</color>
+    <color name="colorText">#9E9E9E</color>
+    <color name="backgroundHistory">#d6e7f1</color>
+    <color name="message_left">#91cbe8</color>
+    <color name="backgroundCategory">#d9e7ef</color>
+    <color name="back_history_chose">#6ec4f7</color>
+    <color name="content_grey">#353535</color>
+    <color name="image_overlay">#20000000</color>
+    <color name="image_overlay2">#80000000</color>
+    <color name="black_images">#df000000</color>
+
+    <color name="notification_date_time">#214a28</color>
+    <color name="notification_taxi_type">#0a00b6</color>
+    <color name="notification_bill">#e64a3e</color>
+    <color name="notification_price">#741938</color>
+    <color name="contact_mobile">#499bd2</color>
+
+    <color name="drawer_menu">#2e323e</color>
+</resources>

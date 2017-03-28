@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/user_fragment"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_gravity="right|end"
+    android:background="@drawable/user_box_decoration"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+
+    <LinearLayout
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_item_click"
+        android:clickable="true"
+        android:orientation="horizontal"
+        style="@style/UserItemStyle">
+
+        <ImageView
+            android:id="@+id/user_icon_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_name" />
+
+        <TextView
+            android:id="@+id/user_txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_item_click"
+        android:clickable="true"
+        android:orientation="horizontal"
+        style="@style/UserItemStyle">
+
+        <ImageView
+            android:id="@+id/user_icon_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_phone" />
+
+        <TextView
+            android:id="@+id/user_txt_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:text="phone"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_item_click"
+        android:clickable="true"
+        android:orientation="horizontal"
+        style="@style/UserItemStyle">
+
+        <ImageView
+            android:id="@+id/user_icon_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_car"/>
+
+        <TextView
+            android:id="@+id/user_txt_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:text="car"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_item_click"
+        android:clickable="true"
+        android:orientation="horizontal"
+        style="@style/UserItemStyle">
+
+        <ImageView
+            android:id="@+id/user_icon_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_money"
+            android:tint="@color/colorGreen" />
+
+        <TextView
+            android:id="@+id/user_txt_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:text="money"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/iron" />
+
+    <LinearLayout
+        android:id="@+id/user_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_item_click"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:orientation="horizontal"
+        style="@style/UserItemStyle">
+
+        <ImageView
+            android:id="@+id/user_icon_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_out"/>
+
+        <TextView
+            android:id="@+id/user_txt_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:text="Thoát"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_pw_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_item_click"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:orientation="horizontal"
+        style="@style/UserItemStyle">
+
+        <ImageView
+            android:id="@+id/user_icon_pw_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_out" />
+
+        <TextView
+            android:id="@+id/user_txt_pw_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:text="Đổi mật khẩu"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

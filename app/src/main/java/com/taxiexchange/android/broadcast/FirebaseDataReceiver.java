@@ -68,7 +68,6 @@ public class FirebaseDataReceiver extends WakefulBroadcastReceiver {
         boolean sign = PreferenceManager.getBoolean(Apps.IS_SIGN);
         if(sign){
             if(!isServiceRunning(WindowService.class, context)){
-                PreferenceManager.writePreference(Apps.NOTIFICATION_BID_STATUS, false);
                 Intent intentService = new Intent(context, WindowService.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(Apps.NOTIFICATION_BID_ID, Parcels.wrap(listAuctionResponse));

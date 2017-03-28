@@ -44,8 +44,13 @@ public class ListJoinedAdapter extends RecyclerView.Adapter<ListJoinedAdapter.Li
 
     @Override
     public void onBindViewHolder(ListJoinedHolder holder, int position) {
-        OfferList item = mOfferList.get(position);
+        OfferList item = mOfferList.get(getItemViewType(position));
         holder.bind(item);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override

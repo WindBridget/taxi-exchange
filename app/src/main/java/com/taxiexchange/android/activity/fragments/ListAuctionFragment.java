@@ -21,10 +21,13 @@ import com.taxiexchange.android.config.Apps;
 import com.taxiexchange.android.config.PreferenceManager;
 import com.taxiexchange.android.model.response.ListAuctionResponse;
 import com.taxiexchange.android.ulti.RecyclerViewListener;
+import com.taxiexchange.android.ulti.TaxiExchangeTimeUtils;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -116,11 +119,15 @@ public class ListAuctionFragment extends BaseFragment{
                     long passengerQty = (long) auctionInfo.child("passenger_qty").getValue();
                     double price = (double) auctionInfo.child("price").getValue();
                     String srcLocation = (String) auctionInfo.child("src_location").getValue();
+                    long departureTimeLong = TaxiExchangeTimeUtils.getTime(departureTime);
 
                     ListAuctionResponse listAuctionResponse = new ListAuctionResponse(bidId, ceilingPrice, hasBill, departureTime,
                             directPrice, dstLocation, dueDate, isRoundTrip, bidType, taxiType, note, passengerQty, price, srcLocation);
+                    listAuctionResponse.setDepartureTimeLong(departureTimeLong);
+
                     mListAuctionResponse.add(listAuctionResponse);
                 }
+                Collections.sort(mListAuctionResponse);
                 mAdapter = new ListAuctionAdapter(getActivity(), mListAuctionResponse);
                 mRecyclerView.setAdapter(mAdapter);
                 progressDialog.dismiss();

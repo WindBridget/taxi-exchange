@@ -17,6 +17,7 @@ import com.taxiexchange.android.config.retrofit.RestClient;
 import com.taxiexchange.android.config.retrofit.TaxiExchangeApi;
 import com.taxiexchange.android.model.response.ListJoinedResponse;
 import com.taxiexchange.android.model.response.OfferList;
+import com.taxiexchange.android.ulti.TaxiExchangeTimeUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -79,9 +80,10 @@ public class ListJoinedFragment extends BaseFragment{
                     Log.d(TAG, "get List joined Success = " + listJoinedResponse);
                     for(OfferList offerList : listJoinedResponse.getOfferList()){
                         Log.d(TAG, "get List joined item bidId = " + offerList.getBidId());
+                        offerList.setDepartureTimeLong(TaxiExchangeTimeUtils.getTime(offerList.getDepartureTime()));
                         mOfferList.add(offerList);
                     }
-//                    Collections.reverse(mOfferList);
+                    Collections.sort(mOfferList);
                     mAdapter = new ListJoinedAdapter(getActivity(), mOfferList);
                     mRecyclerView.setAdapter(mAdapter);
                 }

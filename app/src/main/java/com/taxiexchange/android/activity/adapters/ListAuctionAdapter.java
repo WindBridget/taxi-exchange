@@ -45,17 +45,13 @@ public class ListAuctionAdapter extends RecyclerView.Adapter<ListAuctionAdapter.
 
     @Override
     public void onBindViewHolder(ListAuctionHolder holder, int position) {
-
-        ListAuctionResponse item = mListAuctionResponse.get(position);
-        Log.e(TAG, position +"");
-        Log.e(TAG, item +"");
+        ListAuctionResponse item = mListAuctionResponse.get(getItemViewType(position));
         holder.bind(item);
-
     }
 
     @Override
     public int getItemViewType(int position) {
-        return super.getItemViewType(position);
+        return position;
     }
 
 
@@ -178,7 +174,6 @@ public class ListAuctionAdapter extends RecyclerView.Adapter<ListAuctionAdapter.
             //row 7
             if (item.getDueDate() != null) {
                 long timeSub = TaxiExchangeTimeUtils.getTimeRemaining(item.getDueDate());
-                Log.e(TAG, item.getBidId()+":"+timeSub);
                 new CountDownTimer(timeSub , 1000){
                     @Override
                     public void onTick(long millisUntilFinished) {

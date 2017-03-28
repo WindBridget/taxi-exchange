@@ -165,23 +165,14 @@ public class WindowService extends Service {
 
             Log.d(TAG, e.toString());
         }
-
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e(TAG, "in start Service");
-        isRunning = PreferenceManager.getBoolean(Apps.NOTIFICATION_BID_STATUS);
-        Log.e(TAG, isRunning +"");
-//        if(!isRunning){
-            Log.e(TAG, "get start Service");
-            getData(intent);
-            initAPI();
-            addNotificationView();
-            PreferenceManager.writePreference(Apps.NOTIFICATION_BID_STATUS, true);
-//        }else{
-//            Log.e(TAG, "not start Service");
-//        }
+        getData(intent);
+        initAPI();
+        addNotificationView();
+        PreferenceManager.writePreference(Apps.NOTIFICATION_BID_STATUS, true);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ACTION_UPDATE_NOTIFICATION);
         registerReceiver(mNotificationReceiver, intentFilter);
@@ -192,7 +183,6 @@ public class WindowService extends Service {
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(mNotificationReceiver);
-        Log.e(TAG, "in detroy Service");;
         stop();
     }
 
@@ -400,8 +390,6 @@ public class WindowService extends Service {
         PowerManager.WakeLock wakeLock = pm.newWakeLock((PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP), "TAG");
         wakeLock.acquire();
     }
-
-
     private void initSpinner(){
         List<String> spinnerList = new ArrayList();
         for(int i = (int) (mListAuctionResponse.getCeilingPrice()/1000); i > 0; i -= 10 ){
@@ -539,7 +527,39 @@ public class WindowService extends Service {
                                 }
                             }
                             //row 8 : spinner
+                            List<String> spinnerList = new ArrayList();
+                            for(int i = (int) (listAuctionResponse.getCeilingPrice()/1000); i > 0; i -= 10 ){
+                                spinnerList.add(String.format("%,d", i) + " K");
+                            }
+                            ArrayAdapter<String> dataAdapter = new ArrayAdapter( mNotificationView.getContext(),
+                                    android.R.layout.simple_spinner_item, spinnerList);
+                            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            spinner.setPrompt("Bid giá");
+                            spinner.getBackground().setColorFilter(Color.parseColor("#AA7744"), PorterDuff.Mode.SRC_ATOP);
+                            spinner.setAdapter(
+                                    new NothingSelectedSpinnerAdapter(
+                                            dataAdapter,
+                                            R.layout.contact_spinner_row_nothing_selected,
+//                        R.layout.contact_spinner_nothing_selected_dropdown, // Optional
+                                            mNotificationView.getContext()));
+                            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                                    Object item = parent.getItemAtPosition(position);
+                                    if (item != null) {
+                                        btnAccept.setEnabled(true);
+                                        ((TextView) view).setTextColor(Color.BLACK);
+                                    }
+                                    else {
+                                        btnAccept.setEnabled(false);
+                                        ((TextView) view).setTextColor(Color.GRAY);
+                                    }
+                                }
+                                @Override
+                                public void onNothingSelected(AdapterView<?> parent) {
+                                }
+                            });
                             //row 9
 
                             btnAccept.setOnClickListener(new View.OnClickListener() {
@@ -700,12 +720,6 @@ public class WindowService extends Service {
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
         Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-      /*  Uri notificationSound
-                = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
-                + "://"
-                + getApplication().getPackageName()
-                + "/"
-                + R.raw.notification);*/
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_t_icon)
                 .setContentTitle("Bạn vừa nhận được cuốc đấu giá từ Xelienket")

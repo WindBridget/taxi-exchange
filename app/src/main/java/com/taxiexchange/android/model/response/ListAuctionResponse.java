@@ -13,7 +13,7 @@ import org.parceler.Parcel;
  */
 
 @Parcel
-public class ListAuctionResponse{
+public class ListAuctionResponse implements Comparable<ListAuctionResponse>{
     @SerializedName("bid_id")
     @Expose
     private String bidId;
@@ -190,9 +190,18 @@ public class ListAuctionResponse{
     public void setSrcLocation(String srcLocation) {
         this.srcLocation = srcLocation;
     }
-//
-//    private long departureTimeLong = TaxiExchangeTimeUtils.getTime(departureTime);
 
+
+
+    private long departureTimeLong;
+
+    public long getDepartureTimeLong() {
+        return departureTimeLong;
+    }
+
+    public void setDepartureTimeLong(long departureTimeLong) {
+        this.departureTimeLong = departureTimeLong;
+    }
     @Override
     public String toString() {
         return "ListAuctionResponse{" +
@@ -213,9 +222,9 @@ public class ListAuctionResponse{
                 '}';
     }
 
-//
-//    @Override
-//    public int compareTo(@NonNull ListAuctionResponse o) {
-//        return (this.departureTimeLong < o.departureTimeLong) ? -1 : (this.departureTimeLong > o.departureTimeLong ? 1 : 0);
-//    }
+
+    @Override
+    public int compareTo(@NonNull ListAuctionResponse o) {
+        return (this.departureTimeLong < o.departureTimeLong) ? -1 : (this.departureTimeLong > o.departureTimeLong ? 1 : 0);
+    }
 }

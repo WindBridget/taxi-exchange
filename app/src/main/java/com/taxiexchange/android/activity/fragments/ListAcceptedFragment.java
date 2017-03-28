@@ -16,7 +16,11 @@ import com.taxiexchange.android.config.retrofit.RestClient;
 import com.taxiexchange.android.config.retrofit.TaxiExchangeApi;
 import com.taxiexchange.android.model.response.ListAcceptedResponse;
 import com.taxiexchange.android.model.response.TripList;
+import com.taxiexchange.android.ulti.TaxiExchangeTimeUtils;
+
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,8 +77,10 @@ public class ListAcceptedFragment extends BaseFragment{
                     Log.d(TAG, "get List accepted Success = " + listAcceptedResponse);
                     for(TripList tripList : listAcceptedResponse.getTripList()){
                         Log.d(TAG, "get List accepted item bidId = " + tripList.getBidId());
+                        tripList.setDepartureTimeLong(TaxiExchangeTimeUtils.getTime(tripList.getDepartureTime()));
                         mTripList.add(tripList);
                     }
+                    Collections.sort(mTripList);
                     mAdapter = new ListAcceptedAdapter(getActivity(), mTripList);
                     mRecyclerView.setAdapter(mAdapter);
                 }

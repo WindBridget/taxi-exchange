@@ -1,5 +1,7 @@
 package com.taxiexchange.android.model.response;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by hieu.nguyennam on 3/23/2017.
  */
 
-public class TripList {
+public class TripList implements Comparable<TripList>{
     @SerializedName("price")
     @Expose
     private double price;
@@ -183,5 +185,19 @@ public class TripList {
 
     public void setContactMobile(String contactMobile) {
         this.contactMobile = contactMobile;
+    }
+    private long departureTimeLong;
+
+    public long getDepartureTimeLong() {
+        return departureTimeLong;
+    }
+
+    public void setDepartureTimeLong(long departureTimeLong) {
+        this.departureTimeLong = departureTimeLong;
+    }
+
+    @Override
+    public int compareTo(@NonNull TripList o) {
+        return (this.departureTimeLong < o.departureTimeLong) ? -1 : (this.departureTimeLong > o.departureTimeLong ? 1 : 0);
     }
 }

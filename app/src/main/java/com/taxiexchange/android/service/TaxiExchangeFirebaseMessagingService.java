@@ -38,38 +38,6 @@ public class TaxiExchangeFirebaseMessagingService  extends FirebaseMessagingServ
             Log.e(TAG, "Data Payload: " + remoteMessage.getData());
 
         }
-//        sendNotification();
     }
 
-    private void sendNotification() {
-        Log.e(TAG, "In sendNotification");
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                | Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.setAction(Long.toString(System.currentTimeMillis()));
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-      /*  Uri notificationSound
-                = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
-                + "://"
-                + getApplication().getPackageName()
-                + "/"
-                + R.raw.notification);*/
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_t_icon)
-                .setContentTitle("Bạn vừa nhận được cuốc đấu giá từ Xelienket")
-                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE)
-                .setContentText("Từ-> đến. GIá tiền")
-                .setAutoCancel(true)
-                .setPriority(1)
-                .setSound(notificationSound)
-                .setContentIntent(pendingIntent);
-
-        NotificationManager notificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(Apps.NOTIFICATION_ID, notificationBuilder.build());
-    }
 }

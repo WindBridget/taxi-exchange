@@ -46,8 +46,13 @@ public class ListAcceptedAdapter extends RecyclerView.Adapter<ListAcceptedAdapte
 
     @Override
     public void onBindViewHolder(ListAcceptedHolder holder, int position) {
-        TripList item = mTripList.get(position);
+        TripList item = mTripList.get(getItemViewType(position));
         holder.bind(item);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
     @Override
